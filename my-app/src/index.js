@@ -63,7 +63,8 @@ import './index.css';
     }
   
     render() {
-      const status = 'Next player: X';
+      // change the display so it's either X or O
+      const status = `Next Player: ${this.state.xIsNext ? 'X' : 'O'}`;
   
       return (
         <div>
