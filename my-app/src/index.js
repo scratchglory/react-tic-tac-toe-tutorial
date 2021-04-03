@@ -41,14 +41,18 @@ import './index.css';
       super(props);
       this.state = {
         squares: Array(9).fill(null),
+        xIsNext: true, // to help flip turns
       }
     }
     
     // Create a handleClick to handle the clicks below
     handleClick(i) {
       const squares = this.state.squares.slice();
-      squares[i] = 'X';
-      this.setState({squares: squares});
+      squares[i] = this.state.xIsNext ? 'X' : 'O'; // based on the boolean will determine value
+      this.setState({
+        squares: squares,
+        xIsNext: !this.state.xIsNext, // when option is clicked on, it will flip the value
+      });
     }
     
     renderSquare(i) {
